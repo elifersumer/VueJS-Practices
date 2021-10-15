@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Vue.js | Yazılım Bilimi</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="age">
+            <p>{{isAdult()}}</p>
+            <p>{{ageWriterComp}}</p> <!--Vue instance değişkeninin değerini tutar eğer değiştirilmiyorsa rendering işleminde tekrar çalıştırmaz-->
+        </div>
+
+        <script>
+            new Vue({
+                el : "#app",
+                data : {
+                    age : 0
+                },
+                methods: {
+                    isAdult(){
+                        return this.age>=18 ? 'Reşittir' : 'Değildir'
+                    }
+                },
+                computed : {
+                    ageWriterComp(){
+                        return this.age>=18 ? 'Reşittir' : 'Değildir'
+                    }
+                },
+                watch : {
+                    age(newValue,oldValue){
+                        //önceki değeri izlememize yarar
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

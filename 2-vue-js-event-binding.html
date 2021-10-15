@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Vue.js | Yazılım Bilimi</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input @keypress.enter="keyp($event)">
+            <button @click="increase()">Arttır</button>
+            <p v-text="sayi"></p>
+        </div>
+
+        <script>
+            new Vue({
+                el : "#app",
+                data : {
+                    sayi : 1
+                },
+                methods: {
+                    keyp(e){
+                        this.sayi+=parseInt(e.target.value)
+                    },
+                    increase(){
+                        this.sayi++
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
