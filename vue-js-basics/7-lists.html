@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Vue.js | Yazılım Bilimi</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <style>
+            ul{
+                width: 200px;
+                height: 100px;
+                margin: 0;
+                padding: 0;
+                border: 1px solid #ccc;
+                list-style: none;
+            }
+
+            li{
+                margin-top: 9px;
+                padding: 5px;
+                text-align: left;
+            }
+
+            .red{
+                background-color: crimson;
+            }
+            
+            .green{
+                background-color: limegreen;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="product in productList" :class="backgroundByCount(product)">
+                    <span>{{product.title}} - {{product.amount}}</span>
+                    <button>Sat</button>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            new Vue({
+                el : "#app",
+                data : {
+                    person :{
+                        name : "Elif",
+                        lastName : "Ersümer"
+                    },
+                    productList :[
+                        {
+                            title: "Laptop",
+                            price: 10000,
+                            amount: 45
+                        },
+                        {
+                            title: "Phone",
+                            price: 4000,
+                            amount: 100
+                        },
+                        {
+                            title: "Earphone",
+                            price: 200,
+                            amount: 0
+                        }
+                    ]
+                },
+                methods: {
+                    backgroundByCount(product){
+                        return {'green':product.amount>0, 'red':product.amount<=0}
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>
